@@ -4,7 +4,7 @@ import configparser
 import tflearn
 
 def main():
-    train('local', 5)
+    train('AWS', 500)
 
 def train(env, epoch_num):
     '''
@@ -20,6 +20,7 @@ def train(env, epoch_num):
     conf = config[env]
     image_size = conf['window_size']
     mean_colors = [float(conf['mean_r']), float(conf['mean_g']), float(conf['mean_b'])]
+    print 'data: ', conf['data_folder']
     #-----------------------------------------------------------------------------------------
 
     #----------------------------------------input layer------------------------------------------
@@ -45,7 +46,7 @@ def train(env, epoch_num):
                          loss='categorical_crossentropy',
                          learning_rate=0.001)  #if want to finetune give 'restore=False'
     # model  http://tflearn.org/models/dnn/
-    model = tflearn.DNN(network, checkpoint_path='model_googlenet',
+    model = tflearn.DNN(network, checkpoint_path='./models/model_googlenet',
                         max_checkpoints=1, tensorboard_verbose=0, tensorboard_dir="./logs")
     print('network is created, fit started.')
     model.fit(X_train, Y_train, n_epoch=epoch_num,  shuffle=True,
@@ -55,7 +56,7 @@ def train(env, epoch_num):
     #---------------------------------------------------------------------------------------------
 
 
-    model.save('inception_ercis_last.model')
+    model.save('./model/inception_ercis_last.model')
 
 
 
