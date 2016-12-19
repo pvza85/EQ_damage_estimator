@@ -1,21 +1,38 @@
+import os
 import h5py
 import random
 import pandas as pd
+import os.path
 from tflearn.data_utils import build_hdf5_image_dataset
 
 
-def data_prep(conf, method = 'random', training_size = 0.7):
+def data_prep(conf, method = 'random', training_size = 0.7, clean_start = False):
     '''
     create hdf5 files based on train and test selecting strategy
     and return results as train and test sets
     :param conf: parameters from congigure file
     :param method: random / sequence; at sequence get first training_size of images as training
     :param training_size: portion of images that will be used in trainig
+    :param start_clean: start from zero or work based on previous work
     :return: X_train, Y_train, X_test, Y_test
     '''
 
     data_folder = conf['data_folder']
+    if clean_start:
+        os.remove(data_folder + 'train.h5')
+        os.remove(data_folder + 'test.h5')
+    #in the case files is available just read it and return
+    if os.path.isfile(data_folder + 'train.h5')  and os.path.isfile(data_folder + 'test.h5'):
+        _h5f = h5py.File(data_folder + 'train.h5', 'r')
+        X_train = _h5f['X']
+        Y_train = _h5f['Y']
+        h5f_ = h5py.File(data_folder + 'test.h5', 'r')
+        X_test = h5f_['X']
+        Y_test = h5f_['Y']
 
+        return X_train, Y_train, X_test, Y_test
+
+    # if the file is not available, continue creating it
     test_counter = 0
     counter = 0
     train_file = data_folder + 'train.txt'
