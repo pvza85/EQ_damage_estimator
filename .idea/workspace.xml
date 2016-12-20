@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59868996-4dd1-4278-b56d-cdeff2e7a6c3" name="Default" comment="all changes done&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Untitled-checkpoint.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/deep_learning01-checkpoint.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/test-checkpoint.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/test2-checkpoint.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data_preparation/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data_preparation/building.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data_preparation/converter.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/data_prep.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deep_learning/network.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test02.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/train03.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="59868996-4dd1-4278-b56d-cdeff2e7a6c3" name="Default" comment="all changes done&#10;" />
     <ignored path="source.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
