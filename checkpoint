@@ -1,0 +1,2 @@
+model_checkpoint_path: "inception_ercis.model"
+all_model_checkpoint_paths: "inception_ercis.model"

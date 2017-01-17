@@ -124,9 +124,9 @@ def inception(input_layer, num_class):
     inception_5a_pool_1_1 = tflearn.conv_2d(inception_5a_pool, 128, filter_size=1, activation='relu',
                                     name='inception_5a_pool_1_1')
 
-    inception_5a_output = tflearn.merge([inception_5a_1_1, inception_5a_3_3, inception_5a_5_5, inception_5a_pool_1_1], axis=3,
+    inception_5a_output_ = tflearn.merge([inception_5a_1_1, inception_5a_3_3, inception_5a_5_5, inception_5a_pool_1_1], axis=3,
                                 mode='concat')
-
+    inception_5a_output = tflearn.dropout(inception_5a_output_, 0.45)
     inception_5b_1_1 = tflearn.conv_2d(inception_5a_output, 384, filter_size=1, activation='relu', name='inception_5b_1_1')
     inception_5b_3_3_reduce = tflearn.conv_2d(inception_5a_output, 192, filter_size=1, activation='relu',
                                       name='inception_5b_3_3_reduce')
@@ -141,7 +141,7 @@ def inception(input_layer, num_class):
                                 mode='concat')
 
     pool5_7_7 = tflearn.avg_pool_2d(inception_5b_output, kernel_size=7, strides=1)
-    pool5_7_7 = tflearn.dropout(pool5_7_7, 0.4)
+    pool5_7_7 = tflearn.dropout(pool5_7_7, 0.65)
     loss = tflearn.fully_connected(pool5_7_7, num_class, activation='softmax')
 
     return loss
